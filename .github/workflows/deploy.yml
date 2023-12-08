@@ -27,4 +27,4 @@ jobs:
       - name: Push code to Google Workspace
         run: clasp push
         env:
-          GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+          GCP_SA_KEY: 'AIzaSyDsj3Gj769crAj4UFz__6boSC3aWhqWO50'
