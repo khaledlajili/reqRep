@@ -1,0 +1,30 @@
+name: Deploy to Google Workspace
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 14
+
+      - name: Install clasp
+        run: npm install -g @google/clasp
+
+      - name: Authenticate with clasp
+        run: clasp login --no-localhost
+
+      - name: Push code to Google Workspace
+        run: clasp push
+        env:
+          GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
