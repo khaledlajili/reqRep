@@ -42,7 +42,7 @@ function onInstall(e) {
 function replaceRequirements() {
   var doc = DocumentApp.getActiveDocument();
   var body = doc.getBody();
-  Logger.log('it works');
+
   var regex = /REQ-\d+/g;
   var matches = body.getText().match(regex).filter((value, index, self) => {
     return self.indexOf(value) === index;
