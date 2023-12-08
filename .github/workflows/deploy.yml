@@ -18,5 +18,11 @@ jobs:
         with:
           node-version: 14
 
+      - name: Install clasp
+        run: npm install -g @google/clasp
+
+      - name: Authenticate with clasp
+        run: clasp login --no-localhost --creds .clasprc.json
+
       - name: Push code to Google Workspace
-        run: npx clasp push -f
+        run: clasp push
